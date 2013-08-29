@@ -31,5 +31,12 @@ to have an understanding of all the tools and libraries that are
 available to you.
 
 ## License
+
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+
+## Collaborators
+
+Thanks to people who contributed code and bug fixes:
+
+- [Stephen Sawchuk](https://github.com/stephenplusplus)
 

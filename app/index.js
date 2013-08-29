@@ -3,6 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 var fs = require('fs');
+var chalk = require('chalk');
 
 
 var FirefoxOSGenerator = module.exports = function FirefoxOSGenerator(
@@ -23,18 +24,7 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
   var cb = this.async();
 
   // welcome message
-  var welcome =
-  '\n     _-----_' +
-  '\n    |       |' +
-  '\n    |' + '--(o)--'.red + '|   .--------------------------.' +
-  '\n   `---------´  |    ' + 'Welcome to Yeoman,'.yellow.bold + '    |' +
-  '\n    ' + '( '.yellow + '_' + '´U`'.yellow + '_' + ' )'.yellow + '   |   ' + 'ladies and gentlemen!'.yellow.bold + '  |' +
-  '\n    /___A___\\   \'__________________________\'' +
-  '\n     |  ~  |'.yellow +
-  '\n   __' + '\'.___.\''.yellow + '__' +
-  '\n ´   ' + '`  |'.red + '° ' + '´ Y'.red + ' `\n';
-
-  console.log(welcome);
+  console.log(this.yeoman);
 
   var prompts = [{
     name: 'appName',
@@ -47,13 +37,12 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
   }, {
     type: 'confirm',
     name: 'shallUseGaiaBB',
-    message: 'Include Gaia\'s Building Blocks (default: '
-      + 'YES'.bold + ')',
+    message: 'Include Gaia\'s Building Blocks',
     default: true
   }, {
     type: 'confirm',
     name: 'shallUseFramework',
-    message: 'Add Backbone + Require (default: ' + 'YES'.bold + ')',
+    message: 'Add Backbone + Require',
     default: true
   }];
 
@@ -71,16 +60,16 @@ FirefoxOSGenerator.prototype._copyGaiaBB = function (dst) {
   var done = this.async();
   var _this = this;
 
-  console.log('Gaia repository will now be downloaded.\nDepending on your' +
+  console.log('Gaia repository will now be downloaded.\nDepending on your ' +
               'connection, this will probably take a while.\n' +
-              'Don\'t panic!'.yellow);
+              chalk.yellow('Don\'t panic!'));
 
   var bbSrc = 'https://github.com/buildingfirefoxos/' +
     'Building-Blocks/archive/gh-pages.tar.gz';
 
   this.tarball(bbSrc, '.tmp/bb/', function (err) {
     if (err) {
-      console.log('Error fetching Gaia Building Blocks'.red);
+      console.log(chalk.red('Error fetching Gaia Building Blocks'));
     }
     else {
       var root = _this.sourceRoot();

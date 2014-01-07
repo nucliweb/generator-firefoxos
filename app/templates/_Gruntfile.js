@@ -115,6 +115,10 @@ module.exports = function (grunt) {
       sass: {
         files: ['app/styles/**/*.{scss,sass}'],
         tasks: ['sass:dev']
+      },
+      js: {
+        files: ['<%%= jshint.all %>'],
+        tasks: ['jshint']
       }
     },
 

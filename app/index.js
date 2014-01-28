@@ -52,6 +52,7 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (props) {
     this.appName = props.appName;
+    this.appVersion = props.appVersion;
     this.devUserName = props.devUserName;
     this.shallUseGaiaBB = props.shallUseGaiaBB;
     this.shallUseFramework = props.shallUseFramework;

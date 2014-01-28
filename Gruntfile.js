@@ -9,6 +9,7 @@ module.exports = function (grunt) {
 
   var templateVars = {
     appName: 'Waka waka',
+    appVersion: '1.0.0'
     devUserName: 'darth-vader',
     shallUseGaiaBB: true,
     shallUseFramework: true

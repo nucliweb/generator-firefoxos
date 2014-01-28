@@ -31,6 +31,10 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
     message: 'What do you want to call your app',
     default: 'My Firefox OS App'
   }, {
+    name: 'appVersion',
+    message: 'What is the current version of your app',
+    default: '1.0.0'
+  }, {
     name: 'devUserName',
     message: 'What is your Github username',
     default: 'rick-astley'

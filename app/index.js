@@ -31,6 +31,10 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
     message: 'What do you want to call your app',
     default: 'My Firefox OS App'
   }, {
+    name: 'appVersion',
+    message: 'What is the current version of your app',
+    default: '1.0.0'
+  }, {
     name: 'devUserName',
     message: 'What is your Github username',
     default: 'rick-astley'
@@ -48,6 +52,7 @@ FirefoxOSGenerator.prototype.askFor = function askFor() {
 
   this.prompt(prompts, function (props) {
     this.appName = props.appName;
+    this.appVersion = props.appVersion;
     this.devUserName = props.devUserName;
     this.shallUseGaiaBB = props.shallUseGaiaBB;
     this.shallUseFramework = props.shallUseFramework;
@@ -150,7 +155,7 @@ FirefoxOSGenerator.prototype.app = function app() {
 };
 
 FirefoxOSGenerator.prototype.projectfiles = function projectfiles() {
-  this.copy('package.json', 'package.json');
+  this.copy('_package.json', 'package.json');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
   this.copy('jshintrc', '.jshintrc');
   this.copy('_README.md', 'README.md');
